@@ -20,18 +20,13 @@ function recursiveRoutes(folderName) {
 
       if (stat.isDirectory()) {
           recursiveRoutes(fullName);
-      } else if (file.toLowerCase().indexOf('.js')) {
+      } else if (file.toLowerCase().indexOf() === -1) {
           require('./' + fullName)(app);
           console.log("require('" + fullName + "')");
       }
   });
 }
 recursiveRoutes('routes'); // Initialize it
-
-
-app.get('/health-check', (req, res) => res.sendStatus(200));
-
-
 
 const port = 5000;
 
